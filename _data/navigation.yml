@@ -23,8 +23,8 @@ main:
   # - title: "Blog Posts"
   #  url: /year-archive/
     
-  # - title: "CV"
-  #   url: https://drive.google.com/your-cv-link
+  - title: "CV"
+    url: /cv/
     
   # - title: "CV"
   #   url: /cv-json/
