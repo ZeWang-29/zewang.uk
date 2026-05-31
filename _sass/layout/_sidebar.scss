@@ -100,6 +100,8 @@
     @include breakpoint($large) {
       width: 150px;
       height: 150px;
+      object-fit: cover;
+      object-position: center top;
       padding: 5px;
       border: 1px solid var(--global-border-color);
     }
