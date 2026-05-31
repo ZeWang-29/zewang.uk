@@ -1,8 +1,8 @@
 ---
-title: "Large Language Models and Politics"
+title: "AI and Politics"
 collection: publications
 category: working_papers
-permalink: /publication/llm-politics
-date: 2026-02-01
-order: 2
+permalink: /publication/ai-politics
+date: 2026-03-01
+order: 3
 ---

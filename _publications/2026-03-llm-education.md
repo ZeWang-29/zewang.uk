@@ -1,8 +1,8 @@
 ---
-title: "Large Language Models and Education"
+title: "AI and Education"
 collection: publications
 category: working_papers
-permalink: /publication/llm-education
-date: 2026-03-01
-order: 3
+permalink: /publication/ai-education
+date: 2026-04-01
+order: 4
 ---
