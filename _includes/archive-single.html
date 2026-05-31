@@ -77,7 +77,7 @@
       {% endif %}
     {% endif %}
 
-    {% if post.collection == 'publications' and post.excerpt %}
+    {% if post.collection == 'publications' and post.excerpt and post.category != 'working_papers' %}
       <details class="archive__item-abstract">
         <summary>Abstract</summary>
         <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
