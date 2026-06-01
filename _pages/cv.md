@@ -1,13 +1,12 @@
 ---
-layout: archive
-title: "CV"
+layout: cv
 permalink: /cv/
-author_profile: true
-redirect_to: https://drive.google.com/file/d/1Qo9GKFjyF7tI595Iq_ns0Ff08pI2OAA6/view
-redirect_from:
-  - /resume
+title: CV
+nav: false
+nav_order: 5
+cv_pdf: /assets/pdf/example_pdf.pdf # you can also use external links here
+cv_format: rendercv # options: rendercv, jsonresume
+description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+toc:
+  sidebar: left
 ---
-
-{% include base_path %}
-
-You can view my CV here: [CV on Google Drive](https://drive.google.com/file/d/1Qo9GKFjyF7tI595Iq_ns0Ff08pI2OAA6/view).
