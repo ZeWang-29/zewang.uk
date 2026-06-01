@@ -7,7 +7,7 @@ subtitle: PhD Candidate at <a href='https://www.ucl.ac.uk/'>University College L
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: true
+  image_circular: false
   more_info:
 
 selected_papers: true
