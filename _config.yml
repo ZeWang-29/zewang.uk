@@ -226,6 +226,10 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+  reading_papers:
+    output: false
+  reading_books:
+    output: false
 
 
 # These settings control how pages and collections are included in the site

@@ -15,7 +15,6 @@ author_profile: true
 .reading-item {
   border-left: 3px solid var(--global-border-color, #e0e0e0);
   margin-bottom: 12px;
-  padding: 0;
 }
 
 .reading-item details {
@@ -38,7 +37,7 @@ author_profile: true
   background: var(--global-code-bg-color, #f6f6f6);
 }
 
-.reading-item[open] {
+.reading-item details[open] {
   border-left-color: var(--global-link-color, #119955);
 }
 
@@ -73,6 +72,22 @@ author_profile: true
   font-size: 0.92rem;
   line-height: 1.7;
   color: var(--global-text-color, #333);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.reading-summary h1, .reading-summary h2, .reading-summary h3 {
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.reading-summary h1 { font-size: 1.2rem; }
+.reading-summary h2 { font-size: 1.1rem; }
+.reading-summary h3 { font-size: 1rem; }
+
+.reading-summary table {
+  font-size: 0.85rem;
+  margin: 1em 0;
 }
 
 .reading-expand-icon {
@@ -98,7 +113,8 @@ details[open] .reading-expand-icon {
 <p class="section-note">I keep structured summaries of research papers I read, organized by subject area.</p>
 
 <ul class="reading-list">
-{% for paper in site.data.reading_papers %}
+{% assign papers = site.reading_papers | sort: "date_read" | reverse %}
+{% for paper in papers %}
 <li class="reading-item">
 <details>
 <summary>
@@ -106,25 +122,23 @@ details[open] .reading-expand-icon {
 <span class="reading-title">{{ paper.title }}</span>
 <span class="reading-meta">{{ paper.authors }} ({{ paper.year }}) · <i>{{ paper.venue }}</i><span class="topic">{{ paper.topic }}</span></span>
 </summary>
-<div class="reading-summary">{{ paper.summary | markdownify }}</div>
+<div class="reading-summary">{{ paper.content }}</div>
 </details>
 </li>
 {% endfor %}
-</ul>
-
-{% if site.data.reading_papers.size == 0 %}
+{% if site.reading_papers.size == 0 %}
 <p class="section-note">Coming soon.</p>
 {% endif %}
+</ul>
 
 ---
 
 ## Books
 
-<p class="section-note">A collection of books I have read or am currently reading.</p>
-
-{% if site.data.reading_books.size > 0 %}
+{% assign books = site.reading_books | sort: "date_read" | reverse %}
+{% if books.size > 0 %}
 <ul class="reading-list">
-{% for book in site.data.reading_books %}
+{% for book in books %}
 <li class="reading-item">
 <details>
 <summary>
@@ -132,7 +146,7 @@ details[open] .reading-expand-icon {
 <span class="reading-title">{{ book.title }}</span>
 <span class="reading-meta">{{ book.authors }} ({{ book.year }})<span class="topic">{{ book.topic }}</span></span>
 </summary>
-<div class="reading-summary">{{ book.summary | markdownify }}</div>
+<div class="reading-summary">{{ book.content }}</div>
 </details>
 </li>
 {% endfor %}
