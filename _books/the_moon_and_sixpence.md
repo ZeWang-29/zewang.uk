@@ -7,4 +7,4 @@ date: 2025-01-01
 categories: books
 ---
 
-It's hard to understand why people do not understand the magic of following their minds.
+The curious thing about people is not that they fail to follow their hearts, but that they seem genuinely baffled by anyone who does.
