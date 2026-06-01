@@ -7,4 +7,4 @@ date: 2025-01-01
 categories: books
 ---
 
-*读后感待补充*
+It's hard to understand why people do not understand the magic of following their minds.
