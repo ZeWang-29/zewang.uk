@@ -7,6 +7,10 @@ nav_order: 2
 ---
 
 <style>
+.post-header .post-title {
+  display: none;
+}
+
 .reading-heading {
   font-family: serif;
   font-size: 2.2rem;
