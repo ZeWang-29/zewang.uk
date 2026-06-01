@@ -28,7 +28,7 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.category == "working_papers" %}
-        {{ title }}
+        <span style="color: var(--global-link-color, #119955);">{{ title }}</span>
       {% elsif post.collection == "publications" and post.paperurl %}
         <a href="{{ post.paperurl }}">{{ title }}</a>
       {% elsif post.link %}
