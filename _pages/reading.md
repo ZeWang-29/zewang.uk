@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Reading"
+title: " "
 permalink: /reading/
 author_profile: true
 ---
