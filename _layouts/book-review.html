@@ -55,6 +55,17 @@ layout: default
     margin-bottom: 1.2rem;
   }
 
+  /* Hide theme-injected elements */
+  .post-header,
+  .post-meta,
+  .post-tags,
+  .tag-list,
+  .related-posts,
+  .post-nav,
+  .book-review-page + .tag-list {
+    display: none !important;
+  }
+
   @media (max-width: 480px) {
     .book-review-cover {
       width: 150px;
@@ -70,11 +81,11 @@ layout: default
 
   <div class="book-review-header">
     {% if page.cover %}
-      <img class="book-review-cover" src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+      <img class="book-review-cover" src="{{ page.cover | relative_url }}" alt="" loading="eager">
     {% elsif page.isbn %}
-      <img class="book-review-cover" src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg" alt="{{ page.title }}">
+      <img class="book-review-cover" src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg" alt="" loading="eager">
     {% elsif page.olid %}
-      <img class="book-review-cover" src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg" alt="{{ page.title }}">
+      <img class="book-review-cover" src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg" alt="" loading="eager">
     {% endif %}
     <h1 class="book-review-title">{{ page.title }}</h1>
     <p class="book-review-author">{{ page.author }}</p>
