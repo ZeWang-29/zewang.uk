@@ -26,8 +26,8 @@ main:
   - title: "Reading"
     url: /reading/
 
-  - title: "CV"
-    url: /files/cv.pdf
+  # - title: "CV"
+  #   url: /files/cv.pdf
     
   # - title: "CV"
   #   url: /cv-json/
