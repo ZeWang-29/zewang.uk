@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<style>
+  .book-review-page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .book-review-back {
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--global-theme-color, #6c63ff);
+    text-decoration: underline;
+  }
+
+  .book-review-back:hover {
+    opacity: 0.8;
+  }
+
+  .book-review-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .book-review-cover {
+    width: 200px;
+    margin: 0 auto 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  .book-review-title {
+    font-family: serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .book-review-author {
+    font-size: 1rem;
+    color: var(--global-text-color-light, #888);
+  }
+
+  .book-review-content {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--global-text-color, #333);
+  }
+
+  .book-review-content p {
+    margin-bottom: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    .book-review-cover {
+      width: 150px;
+    }
+    .book-review-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<div class="book-review-page">
+  <a href="/reading/" class="book-review-back">← All books</a>
+
+  <div class="book-review-header">
+    {% if page.cover %}
+      <img class="book-review-cover" src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+    {% elsif page.isbn %}
+      <img class="book-review-cover" src="https://covers.openlibrary.org/b/isbn/{{ page.isbn }}-L.jpg" alt="{{ page.title }}">
+    {% elsif page.olid %}
+      <img class="book-review-cover" src="https://covers.openlibrary.org/b/olid/{{ page.olid }}-L.jpg" alt="{{ page.title }}">
+    {% endif %}
+    <h1 class="book-review-title">{{ page.title }}</h1>
+    <p class="book-review-author">{{ page.author }}</p>
+  </div>
+
+  <div class="book-review-content">
+    {{ content }}
+  </div>
+</div>
