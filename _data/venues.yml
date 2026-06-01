@@ -1,10 +1,8 @@
 "IJCNLP-AACL":
   url: https://aclanthology.org/venues/ijcnlp/
-  color: "#2a9d6e"
 
 "EMNLP":
   url: https://aclanthology.org/venues/emnlp/
-  color: "#2a9d6e"
 
 "WiP":
   color: "#999999"
