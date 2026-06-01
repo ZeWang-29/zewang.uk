@@ -2,7 +2,7 @@
 layout: book-review
 title: Steppenwolf
 author: Hermann Hesse
-isbn: 9780312278670
+cover: /assets/img/book_covers/steppenwolf.jpg
 date: 2025-06-01
 categories: books
 ---

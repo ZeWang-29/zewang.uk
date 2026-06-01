@@ -2,7 +2,7 @@
 layout: book-review
 title: Siddhartha
 author: Hermann Hesse
-isbn: 9780553208849
+cover: /assets/img/book_covers/siddhartha.jpg
 date: 2025-03-01
 categories: books
 ---
