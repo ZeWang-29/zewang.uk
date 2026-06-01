@@ -91,7 +91,11 @@ nav_order: 2
 {% assign sorted_books = site.books | sort: "date" | reverse %}
 {% for book in sorted_books %}
 <li class="book-card">
+  {% if book.status == "Currently Reading" %}
   <div class="book-cover">
+  {% else %}
+  <a href="{{ book.url | relative_url }}" class="book-cover">
+  {% endif %}
     {% if book.cover %}
       <img src="{{ book.cover | relative_url }}" alt="{{ book.title }}">
     {% elsif book.isbn %}
@@ -99,7 +103,11 @@ nav_order: 2
     {% elsif book.olid %}
       <img src="https://covers.openlibrary.org/b/olid/{{ book.olid }}-L.jpg" alt="{{ book.title }}">
     {% endif %}
+  {% if book.status == "Currently Reading" %}
   </div>
+  {% else %}
+  </a>
+  {% endif %}
   <h3 class="book-title">{{ book.title }}</h3>
   <div class="book-author">{{ book.author }}</div>
   {% if book.status == "Currently Reading" %}
