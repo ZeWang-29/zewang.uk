@@ -1,0 +1,108 @@
+%-------------------------------------
+% Resum in LaTeX (XeLaTeX)
+% Author:  HF Yuan
+% Project: https://github.com/xyz-yuanhf/yuan-resume
+% Base on: https://github.com/mattyHerzig/mattys_resume
+%          http://www.jianxu.net/en/
+% License: MIT
+%------------------------------------
+
+\documentclass[a4paper, 10pt]{article}
+\pagenumbering{gobble}
+\usepackage{myresume}  % Style package
+\usepackage{csquotes}
+
+% --------------------  START  --------------------
+\begin{document}
+
+% -------------------- HEADING --------------------
+\begin{flushright}
+  \setstretch{0.6}
+  \item {\Calluna Drayton House, London}  % E-mail address
+  \item {\Calluna zctpanl@ucl.ac.uk}    % Home page
+\end{flushright}\vspace{-45pt}
+
+\begin{flushleft}  % Rplace here with your name (and identity if required)
+  {\Calluna \fontsize{30pt}{30pt}\selectfont \textsc{Ze Wang}} \quad {\Calluna \fontsize{14.5pt}{14.5pt}\selectfont}
+  \noindent\rule{\textwidth}{0.4pt}
+\end{flushleft}
+
+% -------------------- EDUCATION --------------------
+\sectionBlock{
+\section{Education}
+}{
+\pubListStart
+\justifying
+\item[]   Ph.D. in Economics, University College London, 2023 - Present 
+\item[]   MSc in Economics (Distinction), University College London, 2023
+\item[]   BSc  in Economics (First Class), University College London, 2022
+\pubListEnd
+}
+
+\sectionBlock{
+\section{Employment}
+}{
+\pubListStart
+\justifying
+\item[] Research Fellow, Institute for the Future of Work, 2025-
+\item[] Research Affiliate, Holistic AI, 2024- 
+\pubListEnd
+}
+
+% -------------------- PUBLICATIONS --------------------
+\sectionBlock{
+\section{Publications}
+}{
+\pubListStart
+\justifying
+\item[] 
+\item[] Ze Wang, Zekun Wu, Yichi Zhang, Xin Guan, Navya Jain, Qinyang Lu, Saloni Gupta, Adriano Koshiyama. ``Bias Amplification: Large Language Models as Increasingly Biased Media.''
+ \textit{Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics.}
+\item[] Ze Wang, Zekun Wu, Xin Guan, Michael Thaler, Adriano Koshiyama, Skylar Lu, Sachin Beepath, Ediz Ertekin, and Maria Perez-Ortiz. ``JobFair: A Framework for Benchmarking Gender Hiring Bias in Large Language Models.'' \textit{Findings of the association for computational linguistics: EMNLP 2024.}
+\pubListEnd
+}
+
+\sectionBlock{
+\section{Works in progress}
+}{
+\pubListStart
+\justifying
+\item[] Ze Wang, Guobin Shen, and Michael Thaler. ``Large Language Models in Hiring.''
+\item[] Ze Wang. ``Human-AI Interaction Experiments.''
+\item[] Michael Thaler and Ze Wang. ``AI and Politics.''
+\item[] Marcos Vera Hernandez, Soledad Giardili, and Ze Wang. ``AI and Education.''
+\item[] Ze Wang and Zekun Wu. ``An Evaluation Benchmark for AI Agents.''
+
+\pubListEnd
+}
+
+\sectionBlock{
+\section{Grants and Awards}
+}{
+\pubListStart
+\justifying
+\item[] Stone PhD Scholarship (Stone Centre at UCL). Overview: This scholarship includes a research grant focused on studying how AI technologies may perpetuate or amplify existing inequalities related to demographic characteristics .
+\pubListEnd
+}
+
+\sectionBlock{
+\section{Teaching}
+}{
+\pubListStart
+\justifying
+\item[] \textbf{UCL:} Teaching Assistant, \textit{Statistical Methods in Economics} (ECON0005) 
+\pubListEnd
+}
+
+\sectionBlock{
+\section{Presentations}
+}{
+\pubListStart
+\justifying
+\item[] \textbf{2025:} Stone Centre at UCL; University College London 
+\item[] \textbf{2024:}  Holistic AI; University College London 
+\pubListEnd
+}
+
+\end{document}
+
