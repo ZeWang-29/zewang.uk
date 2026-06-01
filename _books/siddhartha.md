@@ -4,5 +4,5 @@ title: Siddhartha
 author: Hermann Hesse
 isbn: 9780553208849
 date: 2025-03-01
-categories: fiction
+categories: books
 ---
