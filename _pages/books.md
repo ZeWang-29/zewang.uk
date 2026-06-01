@@ -1,6 +1,6 @@
 ---
 layout: book-shelf
-title: reading
+title: What I've been reading
 permalink: /reading/
 nav: true
 nav_order: 2
