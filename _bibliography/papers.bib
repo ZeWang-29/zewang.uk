@@ -25,13 +25,15 @@
   abstract={The use of Large Language Models (LLMs) in hiring has led to legislative actions to protect vulnerable demographic groups. This paper presents a novel framework for benchmarking hierarchical gender hiring bias in Large Language Models (LLMs) for resume scoring, revealing significant issues of reverse gender hiring bias and overdebiasing. Our contributions are fourfold: Firstly, we introduce a new construct grounded in labour economics, legal principles, and critiques of current bias benchmarks: hiring bias can be categorized into two types: Level bias (difference in the average outcomes between demographic counterfactual groups) and Spread bias (difference in the variance of outcomes between demographic counterfactual groups); Level bias can be further subdivided into statistical bias (i.e. changing with non-demographic content) and taste-based bias (i.e. consistent regardless of non-demographic content). Secondly, the framework includes rigorous statistical and computational hiring bias metrics, such as Rank After Scoring (RAS), Rank-based Impact Ratio, Permutation Test, and Fixed Effects Model. Thirdly, we analyze gender hiring biases in ten state-of-the-art LLMs. Seven out of ten LLMs show significant biases against males in at least one industry. An industry-effect regression reveals that the healthcare industry is the most biased against males. Moreover, we found that the bias performance remains invariant with resume content for eight out of ten LLMs. This indicates that the bias performance measured in this paper might apply to other resume datasets with different resume qualities. Fourthly, we provide a user-friendly demo and resume dataset to support the adoption and practical use of the framework, which can be generalized to other social traits and tasks.}
 }
 
-@unpublished{wang2026hiring,
-  abbr={WiP},
-  title={Large Language Models in Hiring},
+@article{wang2026hiring,
+  abbr={arXiv},
+  title={AI Alignment Amplifies the Role of Race, Gender, and Disability in Hiring Decisions},
   author={Wang, Ze and Shen, Guobin and Thaler, Michael},
   year={2026},
-  note={Work in progress},
-  bibtex_show={true}
+  html={https://arxiv.org/abs/2605.13866},
+  selected={true},
+  bibtex_show={true},
+  abstract={Humans increasingly delegate decisions to language models, yet whether these systems reproduce or reshape human patterns of discrimination remains unclear. Here we run a large-scale study to analyse whether language models use demographic information in hiring decisions. We show, across 27 models and 177 occupations, that language models give female and Black candidates hiring advantages relative to otherwise-comparable male and white candidates, while giving disabled candidates disadvantages. The differences are meaningful in magnitude: the role of race, gender, and disability status is comparable to six months to one year of additional education. Post-training alignment is the primary driver: relative to matched pre-trained models, alignment amplifies advantages for female and Black candidates by 325\% and 330\%, and disadvantages for disabled candidates by 171\%. Compared with previous human correspondence studies, language models reverse the direction of racial discrimination, attenuate the disability penalty, and amplify the female advantage by 190\%. Alignment changes how models use qualification signals: alignment increases returns to skills and work experience overall, but relatively more so for female and Black candidates. Meanwhile, the absence of qualification signals harms marginalised groups more, particularly for disabled candidates, differences that may explain the asymmetry of alignment effects across groups we observe.}
 }
 
 @unpublished{wang2026humanai,
