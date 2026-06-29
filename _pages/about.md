@@ -10,7 +10,7 @@ profile:
   image_circular: false
   more_info:
 
-selected_papers: false
+selected_papers: true
 social: true
 
 announcements:
@@ -23,4 +23,4 @@ latest_posts:
 
 I am a PhD candidate at **University College London** and a PhD Scholar at the **Stone Centre**. I am also a Research Fellow at the **Institute for the Future of Work** and a Research Affiliate at **Holistic AI**.
 
-My research bridges economics and AI, studying how humans and AI co-adapt over time. I use cognitive economics to investigate the alignment and interpretability of AI systems, with a particular focus on bias, fairness, and societal impact.
+My research studies the interplay between AI and society, with a focus on governance and policy implications. One strand examines how AI systems perpetuate or amplify bias in high-stakes settings such as hiring. The other uses experimental economics to study how AI reshapes human decision-making and beliefs, such as political preferences.
