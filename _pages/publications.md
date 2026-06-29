@@ -28,6 +28,9 @@ nav_order: 1
 .wip-section .periodical {
   display: none !important;
 }
+.publications .bib {
+  display: none !important;
+}
 </style>
 
 <p class="section-heading">Working Papers</p>
