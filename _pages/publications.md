@@ -17,10 +17,6 @@ nav_order: 1
 .publications .abbr {
   display: none !important;
 }
-.publications h2,
-.publications h3 {
-  display: none !important;
-}
 </style>
 
 <div class="publications">
