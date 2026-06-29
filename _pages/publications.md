@@ -16,10 +16,10 @@ nav_order: 1
   display: none !important;
 }
 .section-heading {
-  font-size: 2.125rem;
+  font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #ddd;
 }
 .section-heading:not(:first-child) {
