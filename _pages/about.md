@@ -25,9 +25,9 @@ I am a PhD candidate at **University College London** and a PhD Scholar at the *
 
 My research studies the interplay between AI and society, with a focus on governance and policy implications. One strand examines how AI systems perpetuate or amplify bias in high-stakes settings such as hiring. The other uses experimental economics to study how AI reshapes human decision-making and beliefs, such as political preferences.
 
-<div style="clear: both"></div>
+<div style="clear: both; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 2rem;"></div>
 
-## research
+## Research
 
 <div class="publications">
 
