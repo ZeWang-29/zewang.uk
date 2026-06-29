@@ -27,9 +27,16 @@ My research studies the interplay between AI and society, with a focus on govern
 
 <div style="clear: both; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 2rem;"></div>
 
-## Research
+<style>
+.research-combined > h2 {
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+}
+</style>
 
-<div class="publications">
+<div class="publications research-combined">
+<h2>Research</h2>
 
 {% bibliography %}
 
