@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: research
 description: Publications and work in progress.
-nav: true
+nav: false
 nav_order: 1
 ---
 
