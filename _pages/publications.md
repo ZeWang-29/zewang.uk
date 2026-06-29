@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: research
 description: Publications and work in progress.
-nav: false
+nav: true
 nav_order: 1
 ---
 
@@ -12,6 +12,12 @@ nav_order: 1
 <!-- Bibsearch Feature -->
 
 {% include bib_search.liquid %}
+
+<style>
+.publications .abbr {
+  display: none !important;
+}
+</style>
 
 <div class="publications">
 
