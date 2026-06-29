@@ -34,29 +34,25 @@ My research studies the interplay between AI and society, with a focus on govern
   display: none !important;
 }
 .research-section .section-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2.125rem;
+  font-weight: 400;
   margin-bottom: 1rem;
-}
-.research-section .subsection-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-  color: #555;
 }
 </style>
 
 <div class="publications research-section">
-<p class="section-title">Research</p>
-
-<p class="subsection-title">Working Papers</p>
+<p class="section-title">Working Papers</p>
 
 {% bibliography --query @misc %}
 
 {% bibliography --query @unpublished %}
 
-<p class="subsection-title">Published</p>
+</div>
+
+<div style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 2rem;"></div>
+
+<div class="publications research-section">
+<p class="section-title">Published</p>
 
 {% bibliography --query @inproceedings %}
 
