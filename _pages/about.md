@@ -28,27 +28,36 @@ My research studies the interplay between AI and society, with a focus on govern
 <div style="clear: both; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 2rem;"></div>
 
 <style>
-.research-combined .research-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.research-combined .research-header h2 {
-  margin-bottom: 0;
-}
-.research-combined > h2,
-.research-combined > h3,
-.research-combined > hr {
+.research-section h2,
+.research-section h3,
+.research-section hr {
   display: none !important;
+}
+.research-section .section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.research-section .subsection-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: #555;
 }
 </style>
 
-<div class="publications research-combined">
-<div class="research-header">
-<h2>Research</h2>
-<h2>2026</h2>
-</div>
+<div class="publications research-section">
+<p class="section-title">Research</p>
 
-{% bibliography %}
+<p class="subsection-title">Working Papers</p>
+
+{% bibliography --query @misc %}
+
+{% bibliography --query @unpublished %}
+
+<p class="subsection-title">Published</p>
+
+{% bibliography --query @inproceedings %}
 
 </div>
