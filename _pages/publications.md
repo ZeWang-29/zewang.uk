@@ -17,6 +17,9 @@ nav_order: 1
 .publications .abbr {
   display: none !important;
 }
+.publications .title a {
+  color: var(--global-theme-color) !important;
+}
 </style>
 
 <div class="publications">
