@@ -25,12 +25,18 @@ nav_order: 1
 .section-heading:not(:first-child) {
   margin-top: 2.5rem;
 }
+.wip-section .periodical {
+  display: none !important;
+}
 </style>
 
 <p class="section-heading">Working Papers</p>
 
 <div class="publications">
 {% bibliography --query @article %}
+</div>
+
+<div class="publications wip-section">
 {% bibliography --query @unpublished %}
 </div>
 
