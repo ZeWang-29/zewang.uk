@@ -28,15 +28,24 @@ My research studies the interplay between AI and society, with a focus on govern
 <div style="clear: both; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 2rem;"></div>
 
 <style>
-.research-combined > h2 {
-  display: inline-block;
-  margin-right: 0.5rem;
+.research-combined .research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.research-combined .research-header h2 {
   margin-bottom: 0;
+}
+.research-combined > h2.year {
+  display: none;
 }
 </style>
 
 <div class="publications research-combined">
+<div class="research-header">
 <h2>Research</h2>
+<h2>2026</h2>
+</div>
 
 {% bibliography %}
 
