@@ -36,7 +36,7 @@ My research studies the interplay between AI and society, with a focus on govern
 .research-combined .research-header h2 {
   margin-bottom: 0;
 }
-.research-combined > h2.year {
+.research-combined h3 {
   display: none;
 }
 </style>
