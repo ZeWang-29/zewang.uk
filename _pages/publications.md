@@ -17,11 +17,9 @@ nav_order: 1
 .publications .abbr {
   display: none !important;
 }
-.publications h2.year {
-  margin-bottom: 0.3rem;
-}
-.publications h3.year {
-  margin-bottom: 0.3rem;
+.publications h2,
+.publications h3 {
+  display: none !important;
 }
 </style>
 

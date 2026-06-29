@@ -11,7 +11,7 @@ profile:
   more_info:
 
 selected_papers: false
-social: true
+social: false
 
 announcements:
   enabled: false
@@ -24,3 +24,5 @@ latest_posts:
 I am a PhD candidate at **University College London** and a PhD Scholar at the **Stone Centre**. I am also a Research Fellow at the **Institute for the Future of Work** and a Research Affiliate at **Holistic AI**.
 
 My research studies the interplay between AI and society, with a focus on governance and policy implications. One strand examines how AI systems perpetuate or amplify bias in high-stakes settings such as hiring. The other uses experimental economics to study how AI reshapes human decision-making and beliefs, such as political preferences.
+
+See my [CV](/assets/pdf/cv.pdf) and [Google Scholar](https://scholar.google.com/citations?user=M6GT5AsAAAAJ) for more information. You can contact me at [ze.wang.19@ucl.ac.uk](mailto:ze.wang.19@ucl.ac.uk).
