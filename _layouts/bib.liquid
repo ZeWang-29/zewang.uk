@@ -49,9 +49,9 @@
     <div class="title">
       {% if entry.html %}
         {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" style="color: var(--global-theme-color);">{{ entry.title }}</a>
+          <a href="{{ entry.html }}" style="color: var(--global-theme-color); text-decoration: none;">{{ entry.title }}</a>
         {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" style="color: var(--global-theme-color);">{{ entry.title }}</a>
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" style="color: var(--global-theme-color); text-decoration: none;">{{ entry.title }}</a>
         {% endif %}
       {% else %}
         {{ entry.title }}
@@ -214,9 +214,6 @@
       {% if entry.hal %}
         <a href="https://hal.science/{{ entry.hal }}" class="btn btn-sm z-depth-0" role="button">HAL</a>
       {% endif %}
-      {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-      {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
           <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
@@ -377,14 +374,6 @@
       </div>
     {% endif %}
 
-    {% if entry.bibtex_show %}
-      <!-- Hidden bibtex block -->
-      <div class="bibtex hidden">
-        {% highlight bibtex %}
-        {{- entry.bibtex | hideCustomBibtex -}}
-        {% endhighlight %}
-      </div>
-    {% endif %}
 
     {% if entry.video and site.enable_video_embedding %}
       <!-- Hidden video block -->
