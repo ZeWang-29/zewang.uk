@@ -13,4 +13,4 @@ related_posts: false
 
 ---
 
-I walked into someone on the street. He called me ugly. I kept my head down and walked past. My companion asked: "He insulted you. Aren't you angry?" I said: "How could he have insulted me? He never saw me. What he saw was my eyes, my nose, my mouth. None of those are me. How can anyone see another person through a single glance? It doesn't hold up."
+A man walked into me on the street and called me ugly. I did not look up. My companion, who had a taste for indignation, wanted to know if I was not angry. I said I had no reason to be. The man had not seen me. He had seen a nose, a pair of eyes, a mouth. But these things are not me, any more than my coat is me. It is a curious delusion, the notion that you can know a person at a glance. It has no basis in logic, yet most people live by it.
