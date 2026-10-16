@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink: /
+permalink: /about-legacy/
 subtitle: PhD Candidate at <a href='https://www.ucl.ac.uk/'>University College London</a>
 
 profile:
