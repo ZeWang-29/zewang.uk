@@ -93,6 +93,12 @@
       [255, 221, 158], [170, 200, 255], [150, 225, 230], [210, 180, 255],
     ];
     const WARM = [[255, 252, 244], [255, 236, 200], [255, 221, 158]];
+    // saturated bodies for the few "planets"
+    const PLANET_COLS = [
+      [214, 150, 92], [150, 180, 232], [120, 200, 198],
+      [196, 160, 212], [206, 120, 108], [180, 190, 205],
+    ];
+    let planets = [];
 
     const build = () => {
       DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -101,19 +107,20 @@
       starCanvas.width = W * DPR;
       starCanvas.height = H * DPR;
       sctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      const count = Math.min(260, Math.floor((W * H) / 6500));
+      const count = Math.min(150, Math.floor((W * H) / 12000));
       stars = Array.from({ length: count }, () => {
         const depth = Math.random();
         const ang = Math.random() * Math.PI * 2;
         const spd = 0.015 + depth * 0.05;
         return {
           x: Math.random() * W, y: Math.random() * H,
-          r: 0.3 + depth * 1.5, base: 0.22 + Math.random() * 0.6,
+          r: 0.7 + depth * 2.3, base: 0.4 + Math.random() * 0.6,
           tw: Math.random() * Math.PI * 2, tws: 0.5 + Math.random() * 1.7,
           vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
           col: pick(PALETTE), depth,
         };
       });
+      planets = [];
     };
 
     const dot = (x, y, r, col, a) => {
@@ -130,6 +137,75 @@
       sctx.beginPath();
       sctx.arc(x, y, r, 0, Math.PI * 2);
       sctx.fill();
+    };
+    // --- 3D value noise (solid texture) for planet surfaces ---
+    const nhash = (x, y, z) => {
+      let h = Math.imul(x | 0, 374761393) ^ Math.imul(y | 0, 668265263) ^ Math.imul(z | 0, 2147483647);
+      h = Math.imul(h ^ (h >>> 13), 1274126177);
+      return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+    };
+    const nl = (a, b, t) => a + (b - a) * t;
+    const ns = (t) => t * t * (3 - 2 * t);
+    const vnoise = (x, y, z) => {
+      const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z);
+      const u = ns(x - xi), v = ns(y - yi), w = ns(z - zi);
+      const C = (a, b, c) => nhash(xi + a, yi + b, zi + c);
+      return nl(
+        nl(nl(C(0, 0, 0), C(1, 0, 0), u), nl(C(0, 1, 0), C(1, 1, 0), u), v),
+        nl(nl(C(0, 0, 1), C(1, 0, 1), u), nl(C(0, 1, 1), C(1, 1, 1), u), v),
+        w
+      );
+    };
+    const fbm3 = (x, y, z) => {
+      let f = 0, amp = 0.5, fr = 1;
+      for (let i = 0; i < 5; i++) { f += amp * vnoise(x * fr, y * fr, z * fr); fr *= 2.07; amp *= 0.5; }
+      return f;
+    };
+    const cl255 = (v) => (v < 0 ? 0 : v > 255 ? 255 : v);
+
+    // pre-render a lit, textured planet to an offscreen canvas (device px)
+    const makePlanetSprite = (rCss, col, type, seed) => {
+      const pad = Math.max(2, rCss * 0.12);
+      const half = rCss + pad;
+      const S = Math.ceil(half * 2 * DPR);
+      const cv = document.createElement("canvas");
+      cv.width = S; cv.height = S;
+      const c = cv.getContext("2d");
+      const img = c.createImageData(S, S);
+      const d = img.data;
+      const R = rCss * DPR, cx = S / 2, cy = S / 2;
+      // light direction
+      const la = seed * 6.2831853;
+      let Lx = Math.cos(la) * 0.72, Ly = Math.sin(la) * 0.42 - 0.12, Lz = 0.6;
+      const Ln = Math.hypot(Lx, Ly, Lz); Lx /= Ln; Ly /= Ln; Lz /= Ln;
+      const so = seed * 21.3;
+      for (let py = 0; py < S; py++) {
+        for (let px = 0; px < S; px++) {
+          const i = (py * S + px) * 4;
+          const dx = (px - cx) / R, dy = (py - cy) / R;
+          const d2 = dx * dx + dy * dy;
+          if (d2 > 1) { d[i + 3] = 0; continue; }
+          const dz = Math.sqrt(1 - d2);                 // sphere normal.z & surface z
+          let s = fbm3(dx * 3.0 + so, dy * 3.0, dz * 3.0);
+          if (type === "gas") {
+            // warped latitudinal bands
+            s = 0.5 + 0.44 * Math.sin(dy * 7.5 + (s - 0.5) * 6.0);
+          } else {
+            // rocky: harder contrast, mottled
+            s = Math.min(1, Math.max(0, (s - 0.34) * 1.9));
+          }
+          const tint = (s - 0.5) * 82;
+          let cr = col[0] + tint, cg = col[1] + tint, cb = col[2] + tint;
+          let dif = dx * Lx + dy * Ly + dz * Lz; if (dif < 0) dif = 0;
+          const lit = 0.06 + 0.94 * dif;                // ambient + lambert
+          cr *= lit; cg *= lit; cb *= lit;
+          const rim = Math.pow(1 - dz, 2.6) * dif;      // limb atmosphere, lit side
+          cr += rim * 60; cg += rim * 72; cb += rim * 92;
+          d[i] = cl255(cr); d[i + 1] = cl255(cg); d[i + 2] = cl255(cb); d[i + 3] = 255;
+        }
+      }
+      c.putImageData(img, 0, 0);
+      return { cv, half };
     };
 
     // ---- phenomenon factories: each returns step(ctx) => alive? ----
@@ -293,10 +369,11 @@
         if (s.x < -4) s.x = W + 4; else if (s.x > W + 4) s.x = -4;
         if (s.y < -4) s.y = H + 4; else if (s.y > H + 4) s.y = -4;
         const wrapY = (((s.y - parY * (0.4 + s.depth)) % H) + H) % H;
-        const a = s.base * (0.5 + 0.5 * Math.sin(t * s.tws + s.tw));
+        const a = s.base * (0.55 + 0.45 * Math.sin(t * s.tws + s.tw));
         dot(s.x, wrapY, s.r, s.col, a);
-        if (s.depth > 0.8) glow(s.x, wrapY, s.r * 3, s.col, a * 0.1);
+        if (s.depth > 0.6) glow(s.x, wrapY, s.r * 3.4, s.col, a * 0.16);
       }
+
 
       for (let i = events.length - 1; i >= 0; i--) {
         if (!events[i]()) events.splice(i, 1);
@@ -409,7 +486,7 @@
     },
     { rootMargin: "-42% 0px -52% 0px" }
   );
-  ["home", "about", "news", "experience", "education", "publications", "contact"].forEach((id) => {
+  ["home", "about", "news", "contact"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) sectionIO.observe(el);
   });

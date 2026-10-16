@@ -17,25 +17,20 @@ sitemap: false
   <meta property="og:image" content="https://zewang.uk/assets/img/prof_pic.jpg" />
   <link rel="canonical" href="https://zewang.uk" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C0B09'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23E2A14E' text-anchor='middle'%3EZW%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@0,400;0,500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/fonts/fonts.css" />
   <link rel="stylesheet" href="/assets/site/main.css" />
 </head>
 <body>
   <canvas id="stars" aria-hidden="true"></canvas>
   <header class="nav">
     <a class="nav-mark" href="#home" aria-label="Ze Wang — home">
-      <span class="mark-glyph">ZW</span><span class="mark-name">Ze&nbsp;Wang</span>
+      <span class="mark-glyph"><span class="gz">Z</span><span class="gw">W</span></span>
     </a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#home" data-section="home"><span class="nav-idx">01</span>Home</a>
       <a href="#about" data-section="about"><span class="nav-idx">02</span>About</a>
       <a href="#news" data-section="news"><span class="nav-idx">03</span>News</a>
-      <a href="#experience" data-section="experience"><span class="nav-idx">04</span>Experience</a>
-      <a href="#education" data-section="education"><span class="nav-idx">05</span>Education</a>
-      <a href="#publications" data-section="publications"><span class="nav-idx">06</span>Publications</a>
-      <a href="#contact" data-section="contact"><span class="nav-idx">07</span>Contact</a>
+      <a href="#contact" data-section="contact"><span class="nav-idx">04</span>Contact</a>
     </nav>
   </header>
 
@@ -55,7 +50,7 @@ sitemap: false
     <section class="section" id="about">
       <header class="section-head">
         <span class="section-idx mono">02</span>
-        <h2 class="section-title" data-split>About</h2>
+        <h2 class="section-title" data-split>Profile</h2>
       </header>
 
       <div class="about-body">
@@ -64,24 +59,123 @@ sitemap: false
           at the <strong>Stone Centre</strong>. I am also a Research Fellow at the
           <strong>Institute for the Future of Work</strong> and a Research Affiliate at <strong>Holistic AI</strong>.
         </p>
-        <p class="reveal">
-          My work sits at the intersection of economics and machine learning: large-scale audits of
-          hiring bias in language models, and online experiments on how AI changes the decisions
-          people make. It has appeared at EMNLP and IJCNLP–AACL and been featured by the OECD.
-        </p>
 
-        <div class="strands">
-          <article class="strand reveal">
-            <span class="strand-no mono">I</span>
-            <h3>Bias in high-stakes AI</h3>
-            <p>How AI systems perpetuate — and amplify — bias in hiring and other consequential decisions, and what alignment does to that bias.</p>
-          </article>
-          <article class="strand reveal">
-            <span class="strand-no mono">II</span>
-            <h3>AI &amp; human decisions</h3>
-            <p>Experimental economics on how AI reshapes human decision-making and beliefs — from hiring choices to political preferences.</p>
-          </article>
-        </div>
+        <h3 class="about-sub mono reveal">Publications</h3>
+        <ul class="pubs">
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4><a class="pub-title-link" href="https://arxiv.org/abs/2605.13866" target="_blank" rel="noopener">AI Alignment Amplifies the Role of Race, Gender, and Disability in Hiring Decisions</a></h4>
+              <p class="pub-authors">Ze Wang, Guobin Shen, Michael Thaler</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">2026</span></div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4><a class="pub-title-link" href="https://arxiv.org/abs/2605.07990" target="_blank" rel="noopener">Tool Calling is Linearly Readable and Steerable in Language Models</a></h4>
+              <p class="pub-authors">Zekun Wu, Ze Wang, Seonglae Cho, Yufei Yang, Adriano Koshiyama, Sahan Bulathwela, Maria Perez-Ortiz</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">2026</span></div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4><a class="pub-title-link" href="https://aclanthology.org/2025.ijcnlp-long.8/" target="_blank" rel="noopener">Bias Amplification: Large Language Models as Increasingly Biased Media</a></h4>
+              <p class="pub-authors">Ze Wang, Zekun Wu, Yichi Zhang, Xin Guan, Navya Jain, Qinyang Lu, Saloni Gupta, Adriano Koshiyama</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">IJCNLP–AACL 2025</span></div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4><a class="pub-title-link" href="https://aclanthology.org/2024.findings-emnlp.184/" target="_blank" rel="noopener">JobFair: A Framework for Benchmarking Gender Hiring Bias in Large Language Models</a></h4>
+              <p class="pub-authors">Ze Wang, Zekun Wu, Xin Guan, Michael Thaler, Adriano Koshiyama, Skylar Lu, Sachin Beepath, Ediz Ertekin, Maria Perez-Ortiz</p>
+              <p class="pub-note">Featured by the OECD AI Policy Observatory</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">Findings of EMNLP 2024</span></div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4>AI Reshapes Human Decision-Making in Hiring</h4>
+              <p class="pub-authors">Ze Wang</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">in progress</span></div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4>Chatbots and Political Preference Shifts</h4>
+              <p class="pub-authors">Michael Thaler, Ze Wang</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">in progress</span></div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-main">
+              <h4>Who Gets Selected? Systematic Bias in Higher Education Admissions</h4>
+              <p class="pub-authors">Marcos Vera Hernandez, Soledad Giardili, Ze Wang</p>
+            </div>
+            <div class="pub-side mono"><span class="pub-venue">in progress</span></div>
+          </li>
+        </ul>
+
+        <h3 class="about-sub mono reveal">Experience</h3>
+        <ul class="timeline">
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2026 —</span>
+            <div class="tl-body">
+              <h3>Research Assistant <span class="tl-org">· UCL School of Management</span></h3>
+              <p>Supporting Prof. Angela Aristidou (UKRI Future Leaders Fellow; Google inaugural “AI &amp; Economy” Researcher), researching AI, the economy, and educational institutions.</p>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2025 —</span>
+            <div class="tl-body">
+              <h3>Research Fellow <span class="tl-org">· Institute for the Future of Work</span></h3>
+              <p>Policy research on the future of work and industrial / labour-market policy.</p>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2025</span>
+            <div class="tl-body">
+              <h3>Research Assistant <span class="tl-org">· Department of Economics, University of Oxford</span></h3>
+              <p>Supported Profs. Martin Weidner, Raffaella Giacomini, and Irene Botosaru on a working paper in econometrics.</p>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2024 —</span>
+            <div class="tl-body">
+              <h3>Research Affiliate <span class="tl-org">· Holistic AI</span></h3>
+              <p>Research on AI bias and fairness; co-supervised UCL MSc projects on AI for Sustainable Development.</p>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="about-sub mono reveal">Education</h3>
+        <ul class="timeline">
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2024 —</span>
+            <div class="tl-body">
+              <h3>PhD in Economics <span class="tl-org">· University College London</span></h3>
+              <p>Expected 2028. Stone Centre PhD Scholar.</p>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2023–24</span>
+            <div class="tl-body">
+              <h3>MRes in Economics <span class="tl-org">· University College London</span></h3>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2022–23</span>
+            <div class="tl-body">
+              <h3>MSc in Economics <span class="tl-org">· University College London</span></h3>
+              <p>Distinction.</p>
+            </div>
+          </li>
+          <li class="tl-item reveal">
+            <span class="tl-year mono">2019–22</span>
+            <div class="tl-body">
+              <h3>BSc in Economics <span class="tl-org">· University College London</span></h3>
+              <p>First Class Honours.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -205,142 +299,6 @@ sitemap: false
       </ol>
     </section>
 
-    <!-- ============ 04 · EXPERIENCE ============ -->
-    <section class="section" id="experience">
-      <header class="section-head">
-        <span class="section-idx mono">04</span>
-        <h2 class="section-title" data-split>Experience</h2>
-      </header>
-      <ul class="timeline">
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2026 —</span>
-          <div class="tl-body">
-            <h3>Research Assistant <span class="tl-org">· UCL School of Management</span></h3>
-            <p>Supporting Prof. Angela Aristidou (UKRI Future Leaders Fellow; Google inaugural “AI &amp; Economy” Researcher), researching AI, the economy, and educational institutions.</p>
-          </div>
-        </li>
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2025 —</span>
-          <div class="tl-body">
-            <h3>Research Fellow <span class="tl-org">· Institute for the Future of Work</span></h3>
-            <p>Policy research on the future of work and industrial / labour-market policy.</p>
-          </div>
-        </li>
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2025</span>
-          <div class="tl-body">
-            <h3>Research Assistant <span class="tl-org">· Department of Economics, University of Oxford</span></h3>
-            <p>Supported Profs. Martin Weidner, Raffaella Giacomini, and Irene Botosaru on a working paper in econometrics.</p>
-          </div>
-        </li>
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2024 —</span>
-          <div class="tl-body">
-            <h3>Research Affiliate <span class="tl-org">· Holistic AI</span></h3>
-            <p>Research on AI bias and fairness; co-supervised UCL MSc projects on AI for Sustainable Development.</p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ 05 · EDUCATION ============ -->
-    <section class="section" id="education">
-      <header class="section-head">
-        <span class="section-idx mono">05</span>
-        <h2 class="section-title" data-split>Education</h2>
-      </header>
-      <ul class="timeline">
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2024 —</span>
-          <div class="tl-body">
-            <h3>PhD in Economics <span class="tl-org">· University College London</span></h3>
-            <p>Expected 2028. Stone Centre PhD Scholar.</p>
-          </div>
-        </li>
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2023–24</span>
-          <div class="tl-body">
-            <h3>MRes in Economics <span class="tl-org">· University College London</span></h3>
-          </div>
-        </li>
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2022–23</span>
-          <div class="tl-body">
-            <h3>MSc in Economics <span class="tl-org">· University College London</span></h3>
-            <p>Distinction.</p>
-          </div>
-        </li>
-        <li class="tl-item reveal">
-          <span class="tl-year mono">2019–22</span>
-          <div class="tl-body">
-            <h3>BSc in Economics <span class="tl-org">· University College London</span></h3>
-            <p>First Class Honours.</p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ 06 · PUBLICATIONS ============ -->
-    <section class="section" id="publications">
-      <header class="section-head">
-        <span class="section-idx mono">06</span>
-        <h2 class="section-title" data-split>Publications</h2>
-      </header>
-
-      <ul class="pubs">
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4><a class="pub-title-link" href="https://arxiv.org/abs/2605.13866" target="_blank" rel="noopener">AI Alignment Amplifies the Role of Race, Gender, and Disability in Hiring Decisions</a></h4>
-            <p class="pub-authors">Ze Wang, Guobin Shen, Michael Thaler</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">2026</span></div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4><a class="pub-title-link" href="https://arxiv.org/abs/2605.07990" target="_blank" rel="noopener">Tool Calling is Linearly Readable and Steerable in Language Models</a></h4>
-            <p class="pub-authors">Zekun Wu, Ze Wang, Seonglae Cho, Yufei Yang, Adriano Koshiyama, Sahan Bulathwela, Maria Perez-Ortiz</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">2026</span></div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4><a class="pub-title-link" href="https://aclanthology.org/2025.ijcnlp-long.8/" target="_blank" rel="noopener">Bias Amplification: Large Language Models as Increasingly Biased Media</a></h4>
-            <p class="pub-authors">Ze Wang, Zekun Wu, Yichi Zhang, Xin Guan, Navya Jain, Qinyang Lu, Saloni Gupta, Adriano Koshiyama</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">IJCNLP–AACL 2025</span></div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4><a class="pub-title-link" href="https://aclanthology.org/2024.findings-emnlp.184/" target="_blank" rel="noopener">JobFair: A Framework for Benchmarking Gender Hiring Bias in Large Language Models</a></h4>
-            <p class="pub-authors">Ze Wang, Zekun Wu, Xin Guan, Michael Thaler, Adriano Koshiyama, Skylar Lu, Sachin Beepath, Ediz Ertekin, Maria Perez-Ortiz</p>
-            <p class="pub-note">Featured by the OECD AI Policy Observatory</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">Findings of EMNLP 2024</span></div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4>AI Reshapes Human Decision-Making in Hiring: Evidence from Online Experiments</h4>
-            <p class="pub-authors">Ze Wang</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">in progress</span></div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4>Chatbots and Political Preference Shifts</h4>
-            <p class="pub-authors">Michael Thaler, Ze Wang</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">in progress</span></div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub-main">
-            <h4>Who Gets Selected? Systematic Bias in Higher Education Admissions</h4>
-            <p class="pub-authors">Marcos Vera Hernandez, Soledad Giardili, Ze Wang</p>
-          </div>
-          <div class="pub-side mono"><span class="pub-venue">in progress</span></div>
-        </li>
-      </ul>
-    </section>
-
     <!-- ============ GALLERY ============ -->
     <section class="section gallery" id="moment">
       <div class="gal-row reveal">
@@ -358,7 +316,7 @@ sitemap: false
     <!-- ============ 07 · CONTACT ============ -->
     <section class="section contact" id="contact">
       <header class="section-head">
-        <span class="section-idx mono">07</span>
+        <span class="section-idx mono">04</span>
         <h2 class="section-title" data-split>Contact</h2>
       </header>
       <a class="contact-mail" href="mailto:ze.wang.19@ucl.ac.uk">ze.wang.19@ucl.ac.uk</a>

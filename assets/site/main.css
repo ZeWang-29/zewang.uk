@@ -6,8 +6,8 @@
    ============================================================ */
 
 :root {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Newsreader", Georgia, serif;
+  --font-display: "Libre Franklin", system-ui, -apple-system, sans-serif;
+  --font-body: "Libre Franklin", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   --bg: #0c0b09;
@@ -47,8 +47,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 19px;
-  line-height: 1.62;
+  font-size: 18px;
+  line-height: 1.6;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -96,15 +96,13 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
 }
 .mark-glyph {
-  display: inline-grid;
-  place-items: center;
-  width: 30px; height: 30px;
-  border: 1px solid var(--line-strong);
-  color: var(--accent);
-  font-size: 15px;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
 }
-.nav-mark:hover .mark-glyph { border-color: var(--accent); }
+.mark-glyph .gz { color: var(--ink); }
+.mark-glyph .gw { color: var(--accent); }
 
 .nav-links {
   display: flex;
@@ -157,9 +155,9 @@ main, .footer { position: relative; z-index: 1; }
 .section-idx { color: var(--accent); }
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.4vw, 60px);
-  font-weight: 460;
-  letter-spacing: -0.015em;
+  font-size: clamp(34px, 4.8vw, 54px);
+  font-weight: 650;
+  letter-spacing: -0.025em;
   line-height: 1;
   overflow: hidden;
 }
@@ -194,35 +192,48 @@ main, .footer { position: relative; z-index: 1; }
 }
 @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
-/* name — small artistic signature */
+/* name — clean sans wordmark with a slow flowing gradient */
 .hero-name {
-  font-family: "Pinyon Script", var(--font-display), cursive;
-  font-weight: 400;
-  font-size: clamp(32px, 5vw, 50px);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(68px, 12vw, 144px);
   line-height: 1;
-  letter-spacing: 0.01em;
-  color: var(--ink);
-  margin-bottom: clamp(18px, 3vh, 30px);
+  letter-spacing: -0.04em;
+  margin-bottom: clamp(16px, 3vh, 28px);
+  padding: 0 0.06em 0.08em;
+  background: linear-gradient(104deg,
+    #e2a14e 0%, #f0c27b 18%, #d8a7c4 38%,
+    #aac8ff 58%, #96e1e6 76%, #e2a14e 100%);
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 3px 26px rgba(226, 161, 78, 0.18));
   opacity: 0;
-  animation: fade-up 0.9s var(--ease) 0.2s forwards;
+  animation: fade-up 0.9s var(--ease) 0.2s forwards, name-flow 11s ease-in-out infinite;
+}
+@keyframes name-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* "I work on …" — the focal statement */
 .hero-lines {
   font-family: var(--font-display);
-  font-size: clamp(30px, 5.4vw, 58px);
-  font-weight: 460;
-  letter-spacing: -0.015em;
-  line-height: 1.16;
+  font-size: clamp(23px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.24;
   text-transform: none;
-  min-height: 2.5em;
+  min-height: 2.6em;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   animation: fade-up 0.9s var(--ease) 0.5s forwards;
 }
-.hero-type { color: var(--ink-dim); max-width: 16em; }
+.hero-type { color: var(--ink-dim); max-width: 18em; }
 .typed-prefix { color: var(--ink-dim); }
 #typed { color: var(--accent); font-style: italic; }
 .caret {
@@ -294,10 +305,10 @@ main, .footer { position: relative; z-index: 1; }
 .news-venue { display: block; color: var(--ink-faint); margin-bottom: 9px; letter-spacing: 0.08em; }
 .news-title {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.1vw, 24px);
-  font-weight: 500;
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 600;
   line-height: 1.3;
-  letter-spacing: -0.008em;
+  letter-spacing: -0.015em;
   margin-bottom: 9px;
   color: var(--ink);
 }
@@ -328,10 +339,10 @@ main, .footer { position: relative; z-index: 1; }
 .tl-year { color: var(--accent); white-space: nowrap; padding-top: 6px; }
 .tl-body h3 {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.1vw, 25px);
-  font-weight: 500;
-  letter-spacing: -0.008em;
-  line-height: 1.25;
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 .tl-org { color: var(--ink-dim); font-weight: 400; font-size: 0.82em; }
 .tl-body p { color: var(--ink-dim); font-size: 17px; margin-top: 7px; max-width: 620px; }
@@ -375,12 +386,12 @@ a.news-title-link:hover { color: var(--accent); }
 }
 .strand h3 {
   font-family: var(--font-display);
-  font-size: clamp(24px, 2.6vw, 30px);
-  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 27px);
+  font-weight: 620;
   margin-bottom: 12px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
-.strand p { color: var(--ink-dim); font-size: 17.5px; }
+.strand p { color: var(--ink-dim); font-size: 17px; }
 
 .pub-group { color: var(--ink-faint); margin: clamp(44px, 7vh, 64px) 0 12px; }
 .pubs { list-style: none; }
@@ -395,11 +406,11 @@ a.news-title-link:hover { color: var(--accent); }
 }
 .pub h4 {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2vw, 23px);
-  font-weight: 480;
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-weight: 600;
   line-height: 1.32;
   margin-bottom: 7px;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.015em;
   transition: color 0.25s ease;
 }
 .pub-title-link { color: inherit; transition: color 0.25s ease; }
@@ -430,20 +441,24 @@ a.news-title-link:hover { color: var(--accent); }
 .gal-fig:hover img { filter: grayscale(0); transform: scale(1.02); }
 .gal-quote {
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 420;
-  font-size: clamp(22px, 2.8vw, 32px);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  font-size: clamp(21px, 2.6vw, 30px);
+  line-height: 1.38;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: 22px;
 }
 .gal-caption { color: var(--accent); line-height: 1.7; text-transform: none; letter-spacing: 0.06em; }
 
 /* ---------- about ---------- */
-.about-body p { color: var(--ink-dim); margin-bottom: 22px; max-width: 680px; }
-.about-lede { font-size: clamp(20px, 2.1vw, 23px); color: var(--ink) !important; }
-.about-lede strong, .about-body strong { color: var(--ink); font-weight: 600; }
+.about-body p { color: var(--ink-dim); margin-bottom: 22px; max-width: 700px; }
+.about-lede {
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink) !important;
+}
+.about-lede strong, .about-body strong { color: var(--ink); font-weight: 400; }
 .about-body .strands { margin-top: clamp(32px, 5vh, 52px); }
 .about-sub { color: var(--accent); margin: 36px 0 14px; }
 .facts { list-style: none; }
@@ -464,10 +479,9 @@ a.news-title-link:hover { color: var(--accent); }
 .contact-mail {
   display: inline-block;
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 420;
-  font-size: clamp(28px, 5.6vw, 66px);
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: clamp(26px, 5vw, 58px);
+  letter-spacing: -0.03em;
   margin: 6px 0 44px;
   color: var(--ink);
   transition: color 0.3s ease;
@@ -521,8 +535,8 @@ a.news-title-link:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .caret { animation: none; }
-  .hero-name .word { animation: none; transform: none; }
-  .hero-overline, .hero-typed, .hero-lede { animation: none; opacity: 1; }
+  .hero-name { animation: none; opacity: 1; background-position: 0% 50%; }
+  .hero-lines, .hero-role { animation: none; opacity: 1; }
   .reveal, .news-item, .pub, .strand { opacity: 1 !important; transform: none !important; transition: none !important; }
   .section-title .ch { transform: none !important; transition: none !important; }
 }
