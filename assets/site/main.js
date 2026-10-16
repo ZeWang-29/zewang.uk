@@ -13,12 +13,11 @@
   const GREET = "Hello, I am Ze Wang";
   const WORK = "I work on ";
   const FIELDS = [
-    "Behavioural Economics",
-    "AI Safety & Alignment",
-    "Experimental Economics",
-    "Mechanistic Interpretability",
+    "Experimental Economics & AI Benchmarking",
+    "AI Explainability & Interpretability",
     "Labour Economics & Inequalities",
     "Agentic AI Harnesses",
+    "Political Economy & Bias Amplification",
   ];
 
   // type `text` into `el` one char at a time, then call done()
