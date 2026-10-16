@@ -18,7 +18,7 @@
     "Experimental Economics",
     "Mechanistic Interpretability",
     "Labour Economics & Inequalities",
-    "Agentic AI Harnesses (a startup)",
+    "Agentic AI Harnesses",
   ];
 
   // type `text` into `el` one char at a time, then call done()
