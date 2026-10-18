@@ -21,60 +21,50 @@
   ];
 
   // type `text` into `el` one char at a time, then call done()
-  const typeInto = (el, text, speed, done) => {
-    let i = 0;
-    const step = () => {
-      i++;
-      el.textContent = text.slice(0, i);
-      if (i < text.length) return setTimeout(step, speed + Math.random() * 40);
-      done && done();
-    };
-    step();
-  };
-  // erase `el` back to empty, then call done()
-  const eraseFrom = (el, speed, done) => {
-    const step = () => {
-      const txt = el.textContent;
-      if (!txt.length) return done && done();
-      el.textContent = txt.slice(0, -1);
-      setTimeout(step, speed);
-    };
-    step();
-  };
-
-  const cycleFields = () => {
-    let fi = 0, ci = 0, deleting = false;
-    const tick = () => {
-      const word = FIELDS[fi];
-      if (!deleting) {
-        ci++;
-        typedEl.textContent = word.slice(0, ci);
-        if (ci === word.length) { deleting = true; return setTimeout(tick, 2200); }
-        return setTimeout(tick, 54 + Math.random() * 64);
-      }
-      ci--;
-      typedEl.textContent = word.slice(0, ci);
-      if (ci === 0) { deleting = false; fi = (fi + 1) % FIELDS.length; return setTimeout(tick, 380); }
-      return setTimeout(tick, 24);
-    };
-    tick();
-  };
-
+  // A single rAF-driven scheduler: keeps the caret cadence frame-synced and
+  // steady even when the main thread is busy (setTimeout jitters under load).
   if (typedEl && prefixEl) {
     if (prefersReduced) {
       prefixEl.textContent = WORK;
       typedEl.textContent = FIELDS.join(" · ");
     } else {
-      // Phase 1: type greeting · Phase 2: erase it · Phase 3: type "I work on " then cycle fields.
-      setTimeout(() => {
-        typeInto(typedEl, GREET, 52, () => {
-          setTimeout(() => {
-            eraseFrom(typedEl, 26, () => {
-              typeInto(prefixEl, WORK, 48, () => cycleFields());
-            });
-          }, 1100);
-        });
-      }, 900);
+      let next = performance.now() + 900;      // time of the next step
+      let phase = "greet";                     // greet → erase → prefix → cycle
+      let gi = 0, pi = 0, fi = 0, ci = 0, deleting = false;
+      const type = (now) => {
+        if (now < next) return requestAnimationFrame(type);
+        switch (phase) {
+          case "greet":
+            gi++; typedEl.textContent = GREET.slice(0, gi);
+            if (gi >= GREET.length) { phase = "erase"; next = now + 1100; }
+            else next = now + 52 + Math.random() * 46;
+            break;
+          case "erase":
+            if (typedEl.textContent.length === 0) { phase = "prefix"; next = now + 120; }
+            else { typedEl.textContent = typedEl.textContent.slice(0, -1); next = now + 26; }
+            break;
+          case "prefix":
+            pi++; prefixEl.textContent = WORK.slice(0, pi);
+            if (pi >= WORK.length) { phase = "cycle"; next = now + 260; }
+            else next = now + 48;
+            break;
+          case "cycle": {
+            const word = FIELDS[fi];
+            if (!deleting) {
+              ci++; typedEl.textContent = word.slice(0, ci);
+              if (ci === word.length) { deleting = true; next = now + 2200; }
+              else next = now + 54 + Math.random() * 64;
+            } else {
+              ci--; typedEl.textContent = word.slice(0, ci);
+              if (ci === 0) { deleting = false; fi = (fi + 1) % FIELDS.length; next = now + 380; }
+              else next = now + 24;
+            }
+            break;
+          }
+        }
+        requestAnimationFrame(type);
+      };
+      requestAnimationFrame(type);
     }
   }
 
@@ -99,15 +89,32 @@
       [196, 160, 212], [206, 120, 108], [180, 190, 205],
     ];
     let planets = [];
+    let starSprites = [];
+
+    // pre-render one soft glow sprite per palette colour (cheap drawImage later)
+    const SPRITE = 56;
+    const makeGlowSprite = (col) => {
+      const cv = document.createElement("canvas");
+      cv.width = SPRITE; cv.height = SPRITE;
+      const c = cv.getContext("2d");
+      const g = c.createRadialGradient(SPRITE / 2, SPRITE / 2, 0, SPRITE / 2, SPRITE / 2, SPRITE / 2);
+      g.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},1)`);
+      g.addColorStop(0.16, `rgba(${col[0]},${col[1]},${col[2]},0.8)`);
+      g.addColorStop(0.4, `rgba(${col[0]},${col[1]},${col[2]},0.18)`);
+      g.addColorStop(1, `rgba(${col[0]},${col[1]},${col[2]},0)`);
+      c.fillStyle = g; c.fillRect(0, 0, SPRITE, SPRITE);
+      return cv;
+    };
 
     const build = () => {
-      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      DPR = Math.min(window.devicePixelRatio || 1, 1.5);
       W = window.innerWidth;
       H = window.innerHeight;
       starCanvas.width = W * DPR;
       starCanvas.height = H * DPR;
       sctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      const count = Math.min(150, Math.floor((W * H) / 12000));
+      starSprites = PALETTE.map(makeGlowSprite);
+      const count = Math.min(140, Math.floor((W * H) / 13000));
       stars = Array.from({ length: count }, () => {
         const depth = Math.random();
         const ang = Math.random() * Math.PI * 2;
@@ -117,7 +124,7 @@
           r: 0.7 + depth * 2.3, base: 0.4 + Math.random() * 0.6,
           tw: Math.random() * Math.PI * 2, tws: 0.5 + Math.random() * 1.7,
           vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
-          col: pick(PALETTE), depth,
+          ci: (Math.random() * PALETTE.length) | 0, depth,
         };
       });
       planets = [];
@@ -369,10 +376,13 @@
         if (s.x < -4) s.x = W + 4; else if (s.x > W + 4) s.x = -4;
         if (s.y < -4) s.y = H + 4; else if (s.y > H + 4) s.y = -4;
         const wrapY = (((s.y - parY * (0.4 + s.depth)) % H) + H) % H;
-        const a = s.base * (0.55 + 0.45 * Math.sin(t * s.tws + s.tw));
-        dot(s.x, wrapY, s.r, s.col, a);
-        if (s.depth > 0.6) glow(s.x, wrapY, s.r * 3.4, s.col, a * 0.16);
+        let a = s.base * (0.55 + 0.45 * Math.sin(t * s.tws + s.tw));
+        a = a < 0 ? 0 : a > 1 ? 1 : a;
+        const sz = s.r * 3.4;
+        sctx.globalAlpha = a;
+        sctx.drawImage(starSprites[s.ci], s.x - sz, wrapY - sz, sz * 2, sz * 2);
       }
+      sctx.globalAlpha = 1;
 
 
       for (let i = events.length - 1; i >= 0; i--) {
