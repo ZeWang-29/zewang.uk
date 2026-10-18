@@ -37,7 +37,7 @@
           case "greet":
             gi++; typedEl.textContent = GREET.slice(0, gi);
             if (gi >= GREET.length) { phase = "erase"; next = now + 1100; }
-            else next = now + 52 + Math.random() * 46;
+            else next = now + 30 + Math.random() * 32;
             break;
           case "erase":
             if (typedEl.textContent.length === 0) { phase = "prefix"; next = now + 120; }
@@ -46,14 +46,14 @@
           case "prefix":
             pi++; prefixEl.textContent = WORK.slice(0, pi);
             if (pi >= WORK.length) { phase = "cycle"; next = now + 260; }
-            else next = now + 48;
+            else next = now + 30;
             break;
           case "cycle": {
             const word = FIELDS[fi];
             if (!deleting) {
               ci++; typedEl.textContent = word.slice(0, ci);
               if (ci === word.length) { deleting = true; next = now + 2200; }
-              else next = now + 54 + Math.random() * 64;
+              else next = now + 30 + Math.random() * 36;
             } else {
               ci--; typedEl.textContent = word.slice(0, ci);
               if (ci === 0) { deleting = false; fi = (fi + 1) % FIELDS.length; next = now + 380; }
